@@ -1,0 +1,246 @@
+.payment-confirmation-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #d7d3d3;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0 auto;
+  }  
+  .payment-section, .confirmation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .payment-form {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .payment-method {
+    margin-bottom: 20px;
+  }
+  
+  .payment-method label {
+    margin-right: 20px;
+  }
+  
+  .credit-card-info,
+  .paypal-info {
+    margin-bottom: 20px;
+  }
+  
+  .credit-card-info input,
+  .paypal-info input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .complete-payment-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .complete-payment-button:hover {
+    background-color: #45a049;
+  }
+  
+  .confirmation-section {
+    text-align: center;
+  }
+  
+  .order-details {
+    margin-top: 20px;
+    background-color: #eef2f7;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .order-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order-details li {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .continue-shopping-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .continue-shopping-button:hover {
+    background-color: #45a049;
+  }
+  
+  
+  .payment-confirmation-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .step {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ccc;
+  }
+  
+  .step.active {
+    color: #4caf50;
+  }
+  
+  .payment-section, .confirmation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .payment-form {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .payment-method {
+    margin-bottom: 20px;
+  }
+  
+  .payment-method label {
+    margin-right: 20px;
+  }
+  
+  .credit-card-info,
+  .paypal-info {
+    margin-bottom: 20px;
+  }
+  
+  .credit-card-info input,
+  .paypal-info input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .complete-payment-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .complete-payment-button:hover {
+    background-color: #45a049;
+  }
+  
+  .confirmation-section {
+    text-align: center;
+  }
+  
+  .order-details {
+    margin-top: 20px;
+    background-color: #eef2f7;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .order-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order-details li {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .continue-shopping-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .continue-shopping-button:hover {
+    background-color: #45a049;
+  }
+  .back-to-cart-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .expiration-date-select {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .expiration-date-select select {
+    padding: 6px;
+    width: 100px;
+  }
+  .complete-payment-button {
+    background-color: #303f9f; /* Green background */
+    color: white;              /* White text */
+    padding: 5px 190px;        /* Space inside the button */
+    border: none;               /* No border */
+    border-radius: 5px;        /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
+    font-size: 14px;           /* Optional: make the text a bit larger */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+  }
+  
+  .complete-payment-button:hover {
+  background-color: #648bb4;
+ /* Slightly darker green on hover */
+  }
+  /* Download Invoice button */
+.download-invoice-button {
+  background-color: #2196f3;
+}
+
+.download-invoice-button:hover {
+  background-color: #1976d2;
+}
+
+/* Continue Shopping button */
+.continue-shopping-button {
+  background-color: #303f9f;
+}
+
+.continue-shopping-button:hover {
+  background-color: #648bb4;
+}

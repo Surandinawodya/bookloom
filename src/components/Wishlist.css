@@ -1,0 +1,130 @@
+/* Wishlist.css */
+
+.wishlist-container {
+  
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+   
+    min-height: calc(100vh - 60px);
+    box-sizing: border-box;
+  }
+  
+  .wishlist-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .wishlist-empty {
+    text-align: center;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .wishlist-empty p {
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  .continue-shopping {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .continue-shopping:hover {
+    background-color: #0056b3;
+  }
+  
+  .wishlist-items {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .wishlist-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .item-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    flex-grow: 1;
+  }
+  
+  .item-image {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+  }
+  
+  .item-details {
+    flex-grow: 1;
+  }
+  
+  .item-details h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .item-details .item-author {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+  
+  .item-details .item-price {
+    color: #555;
+    font-weight: bold;
+  }
+  
+  .item-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .add-to-cart-button,
+  .remove-from-wishlist-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #218838;
+  }
+  
+  .remove-from-wishlist-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .remove-from-wishlist-button:hover {
+    background-color: #c82333;
+  }

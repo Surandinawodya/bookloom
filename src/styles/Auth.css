@@ -1,0 +1,119 @@
+/* General Layout for the Auth Container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f5f7fa;
+}
+
+/* Auth Form Styling */
+.auth-form {
+    background: white;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+.auth-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+  
+  .auth-links a {
+    color: #303f9f;
+    text-decoration: none;
+  }
+  
+  .auth-links a:hover {
+    text-decoration: underline;
+  }
+  
+/* Form Title */
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #303f9f;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Placeholder Text */
+input::placeholder {
+    color: #888;
+}
+
+/* Password Field - Eye Icon */
+.password-field {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Remember Me Checkbox to Left */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 0.4rem;
+   /* Align items to the left */
+    font-size: 14px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-left: 250px; /* Add some space between the checkbox and label */
+}
+
+.checkbox-container label {
+    color: #333; /* Adjust the color of the label */
+}
+
+/* Button Styling */
+.btn-primary {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1.5rem;
+    background-color: #303f9f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #336a94;
+}
+
+/* Optional: Add a box-shadow effect to the form */
+.auth-form {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    .auth-form {
+        padding: 1.5rem 2rem;
+    }
+    .auth-form h2 {
+        font-size: 20px;
+    }
+}

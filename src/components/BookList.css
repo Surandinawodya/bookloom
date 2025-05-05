@@ -1,0 +1,101 @@
+.book-list-container {
+  padding: 20px;
+}
+
+.search-filter-bar {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-input {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.book-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.book-card {
+  width: 200px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative; /* Needed for absolute positioning of actions */
+  overflow: hidden; /* Clip actions when not hovered */
+}
+
+.book-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.book-actions {
+  position: absolute;
+  bottom: 0; /* Stick to the bottom */
+  left: 0;
+  width: 100%;
+  background-color: rgba(208, 194, 194, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center; /* Center icons horizontally */
+  padding: 10px 0; /* Add some padding top and bottom */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+}
+
+.book-card:hover .book-actions {
+  opacity: 1; /* Show actions on hover */
+}
+
+.book-actions button {
+  background: none;
+  border: none;
+  color: #ffffff; /* Set the color for both icons */
+  font-size: 1.5rem;
+  margin: 0 15px; /* Adjust spacing between icons */
+  cursor: pointer;
+  padding: 8px; /* Adjust padding around icons */
+  border-radius: 50%; /* Make them circular */
+  background-color: rgba(255, 255, 255, 0.2); /* Light background for icons */
+}
+
+.book-actions button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.book-card h3 {
+  margin: 10px 0 5px;
+}
+
+.book-card p {
+  margin: 5px 0;
+}
+
+.book-card button:last-child { /* Style the "View Details" button */
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: static;
+  width: auto;
+}
+
+.book-card button:last-child:hover {
+  background-color: #2980b9;
+}
+.book-price {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}

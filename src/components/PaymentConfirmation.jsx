@@ -198,6 +198,7 @@ const PaymentConfirmation = () => {
             <button className="download-invoice-button button" onClick={generateInvoice}>
   Download Invoice
 </button>
+
 <button className="continue-shopping-button button" onClick={() => navigate('/')}>
   Continue Shopping
 </button>

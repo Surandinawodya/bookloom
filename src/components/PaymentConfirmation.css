@@ -181,13 +181,14 @@
   }
   
   .continue-shopping-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+  background-color: #4caf50;
+  color: white;              /* White text */
+  padding: 10px 19px;        /* Padding for better spacing */
+  border: none;              /* Remove the border */
+  border-radius: 5px;        /* Round the corners */
+  cursor: pointer;          /* Pointer on hover */
+  font-size: 16px;           /* Font size */
+  transition: background-color 0.3s ease;
   }
   
   .continue-shopping-button:hover {
@@ -243,4 +244,18 @@
 
 .continue-shopping-button:hover {
   background-color: #648bb4;
+}
+.download-invoice-button {
+  background-color: #007bff; /* Blue background */
+  color: white;              /* White text */
+  padding: 10px 19px;        /* Padding for better spacing */
+  border: none;              /* Remove the border */
+  border-radius: 5px;        /* Round the corners */
+  cursor: pointer;          /* Pointer on hover */
+  font-size: 16px;           /* Font size */
+  transition: background-color 0.3s ease; /* Smooth color transition */
+}
+
+.download-invoice-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }

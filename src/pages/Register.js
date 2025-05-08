@@ -11,7 +11,7 @@ const Register = () => {
     password: '',
     fullName: '',
     address: '',
-    phoneNumber: '', // ✅ Add this
+    phoneNumber: '', 
   });
 
   const [showPassword, setShowPassword] = useState(false);

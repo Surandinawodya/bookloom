@@ -44,10 +44,45 @@ const BookList = () => {
     navigate(`/bookdetails/${book.id}`, { state: { book } });
   };
 
-  const handleAddToWishlist = (book) => {
-    console.log(`Added "${book.title}" to wishlist`);
-    alert(`"${book.title}" added to wishlist! (Not yet implemented on the backend)`);
+  const handleAddToWishlist = async (book) => {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+  
+    if (!token) {
+      alert('Please log in to add books to your wishlist.');
+      navigate('/login');
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/wishlist/add', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          book: {
+            bookId: book.id,
+            title: book.title,
+            author: book.author,
+            price: book.price,
+            coverImage: book.coverImage
+          }
+        })
+      });
+  
+      if (response.ok) {
+        alert(`"${book.title}" added to wishlist!`);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || `Failed to add book to wishlist (status: ${response.status})`);
+      }
+    } catch (err) {
+      console.error('Error adding to wishlist:', err);
+      alert('An error occurred while adding to wishlist.');
+    }
   };
+  
 
   const handleAddToCart = async (book) => {
     const token = localStorage.getItem('token') || sessionStorage.getItem('token');
@@ -88,6 +123,7 @@ const BookList = () => {
       alert('An error occurred while adding to cart.');
     }
   };
+  
 
   return (
     <div>

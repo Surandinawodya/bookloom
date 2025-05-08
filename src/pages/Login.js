@@ -25,7 +25,7 @@ const Login = () => {
       }
 
       alert('Login successful!');
-      navigate('/homepage'); // ⬅️ Use navigate instead of window.location.href
+      navigate('/homepage'); 
     } catch (err) {
       alert('Login failed! Please check your credentials.');
     }
@@ -61,7 +61,7 @@ const Login = () => {
             type="checkbox"
             id="rememberMe"
             checked={rememberMe}
-            onChange={() => setRememberMe(!rememberMe)}
+      
           />
           <label htmlFor="rememberMe">Remember Me</label>
         </div>
@@ -70,7 +70,7 @@ const Login = () => {
 
         <div className="auth-links">
           <Link to="/register">Create New Account</Link>
-          <Link to="/forgot-password" style={{ float: 'right' }}>Forgot Password?</Link>
+         {/* <Link to="/forgot-password" style={{ float: 'right' }}>Forgot Password?</Link>*/}
         </div>
       </form>
     </div>

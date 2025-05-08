@@ -18,6 +18,16 @@ const userSchema = new mongoose.Schema({
     },
     
   ],
+  wishlist: [
+    {
+      bookId: String,
+      title: String,
+      author: String,
+      coverImage: String,
+      price: Number
+    }
+  ]
+  
 });
 
 const User = mongoose.model('User', userSchema);

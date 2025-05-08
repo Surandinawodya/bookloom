@@ -74,13 +74,13 @@ const MyProfilePage = () => {
             <label>Address</label>
             <input type="text" value={profile.address} onChange={(e) => setProfile({ ...profile, address: e.target.value })} />
 
-            <h3>Change Password</h3>
+           {/* <h3>Change Password</h3>
             <label>New Password</label>
             <input type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
 
             <label>Confirm Password</label>
             <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-
+*/}
             <button type="submit">Update Profile</button>
           </form>
         </div>

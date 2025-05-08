@@ -173,7 +173,8 @@ const Cart = () => {
                   </td>
                   <td>${(item.price * item.quantity).toFixed(2)}</td>
                   <td>
-                    <button onClick={() => handleRemove(item.bookId)}>Remove</button>
+                  <button className="remove-button" onClick={() => handleRemove(item.bookId)}>Remove</button>
+
                   </td>
                 </tr>
               ))}

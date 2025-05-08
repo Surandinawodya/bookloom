@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-const { error } = require('ajv/dist/vocabularies/applicator/dependencies');
+const auth = require('../middleware/auth'); // use middleware for protected routes
 
 // Register
 router.post('/register', async (req, res) => {
@@ -27,12 +27,12 @@ router.post('/register', async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
-    console.log(error);
+    console.error(err);
     res.status(500).json({ message: 'Registration failed', error: err.message });
   }
 });
 
-// Login
+// Login with 1-hour token
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -60,36 +60,28 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get Profile
-router.get('/profile', async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) return res.status(401).json({ message: 'Unauthorized' });
-
+// Get Profile (protected)
+router.get('/profile', auth, async (req, res) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id).select('-password');
+    const user = await User.findById(req.user.id).select('-password');
     if (!user) return res.status(404).json({ message: 'User not found' });
 
     res.json(user);
   } catch (err) {
-    res.status(401).json({ message: 'Invalid token', error: err.message });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
-// Update Profile
-router.put('/profile', async (req, res) => {
-  const token = req.headers.authorization?.split(' ')[1];
-  if (!token) return res.status(401).json({ message: 'Unauthorized' });
-
+// Update Profile (protected)
+router.put('/profile', auth, async (req, res) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const updates = req.body;
 
     if (updates.password) {
       updates.password = await bcrypt.hash(updates.password, 10);
     }
 
-    const updatedUser = await User.findByIdAndUpdate(decoded.id, updates, { new: true }).select('-password');
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, updates, { new: true }).select('-password');
     res.json({ message: 'Profile updated', user: updatedUser });
   } catch (err) {
     res.status(400).json({ message: 'Error updating profile', error: err.message });

@@ -25,6 +25,7 @@ const Header = () => {
         <div className="top-bar-right desktop-only">
           <Link to="/Register" className="social-icon">Sign Up</Link>
           <Link to="/login" className="social-icon">Login</Link>
+          <Link to="/login" className="social-icon">Logout</Link>
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaFacebookF /></a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaInstagram /></a>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaLinkedinIn /></a>
@@ -79,6 +80,7 @@ const Header = () => {
           <div className="top-bar-right mobile-only">
             <Link to="/Register" className="social-icon">Sign Up</Link>
             <Link to="/login" className="social-icon">Login</Link>
+            <Link to="/login" className="social-icon">Logout</Link>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaFacebookF /></a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaInstagram /></a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon"><FaLinkedinIn /></a>

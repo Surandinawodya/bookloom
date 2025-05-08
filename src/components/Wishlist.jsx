@@ -1,47 +1,112 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
-import { CartContext } from '../contexts/CartContext';
-import './Wishlist.css'; // Import the CSS file  <---- ADD THIS LINE
+import './Wishlist.css';
 
 const Wishlist = () => {
-  const { wishlist, removeFromWishlist, addToCart } = useContext(CartContext);
+  const [wishlistItems, setWishlistItems] = useState([]);
+  const navigate = useNavigate();
+
+  // Fetch wishlist data from the backend
+  const fetchWishlist = async () => {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const response = await fetch('http://localhost:5000/api/wishlist', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      console.log('Fetched Wishlist Data:', data);
+
+      // Ensure wishlist is always an array, even if data.wishlist is undefined or null
+      setWishlistItems(data.wishlist || []);
+    } catch (err) {
+      console.error('Failed to fetch wishlist:', err);
+    }
+  };
+
+  useEffect(() => {
+    fetchWishlist();
+  }, []);
+
+  // Handle remove item from wishlist
+  const handleRemove = async (bookId) => {
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const response = await fetch('http://localhost:5000/api/wishlist/remove', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ bookId })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setWishlistItems(data.wishlist || []); // Ensure wishlist is updated to an array
+      }
+    } catch (err) {
+      console.error('Failed to remove item:', err);
+    }
+  };
 
   return (
-    <div className="wishlist-container">
+    <>
       <Header />
-      <h2>My Wishlist</h2>
-      {wishlist && wishlist.length === 0 ? (
-        <div className="wishlist-empty">
-          <h2>Your Wishlist is Empty</h2>
-          <p>Browse our books and add your favorites here!</p>
-          <Link to="/booklist" className="continue-shopping">Continue Shopping</Link>
-        </div>
+      <div className="steps">
+        <div className="step active">1 <span>WISHLIST</span></div>
+        <div className="step">2 <span>CHECKOUT</span></div>
+        <div className="step">3 <span>PAYMENT</span></div>
+        <div className="step">4 <span>CONFIRMATION</span></div>
+      </div>
+
+      {wishlistItems.length === 0 ? (
+        <p className="empty-wishlist">Your wishlist is empty.</p>
       ) : (
-        <ul className="wishlist-items">
-          {wishlist && wishlist.map(item => (
-            <li key={item.id} className="wishlist-item">
-              <Link to={`/bookdetails/${item.id}`} className="item-link">
-                <img src={item.coverImage} alt={item.title} className="item-image" />
-                <div className="item-details">
-                  <h3>{item.title}</h3>
-                  <p className="item-author">By {item.author}</p>
-                  <p className="item-price">${item.price}</p>
-                </div>
-              </Link>
-              <div className="item-actions">
-                <button className="add-to-cart-button" onClick={() => addToCart(item)}>
-                  Add to Cart
-                </button>
-                <button className="remove-from-wishlist-button" onClick={() => removeFromWishlist(item.id)}>
-                  Remove
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <>
+          <table className="wishlist-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {wishlistItems.map(item => (
+                <tr key={item.bookId}>
+                  <td className="item-details">
+                    <img src={item.coverImage} alt={item.title} />
+                    <span>{item.title}</span>
+                  </td>
+                  <td>${item.price.toFixed(2)}</td>
+                  <td>
+                  <button className="remove-button" onClick={() => handleRemove(item.bookId)}>Remove</button>
+
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <div className="wishlist-footer">
+            <div className="continue-shopping" onClick={() => navigate('/')}>Continue Shopping &gt;&gt;</div>
+            <div className="wishlist-summary">
+              <button className="checkout-button" onClick={() => navigate('/Checkout')}>
+                PROCEED TO CHECKOUT
+              </button>
+            </div>
+          </div>
+        </>
       )}
-    </div>
+    </>
   );
 };
 

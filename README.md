@@ -1,4 +1,5 @@
 📚 Online Bookshop Web Application(BookLoom)
+
 An online bookstore built with JavaScript using React for the frontend, Node.js + Express for the backend, and MongoDB as the database. This application allows users to browse books, register/login, manage their cart and wishlist, and place orders with invoice generation.
 
 🧩 What It Does
@@ -22,6 +23,7 @@ Responsive UI suitable for e-commerce platforms
 
 
 ✅ Project Requirements
+
 Backend (server/):
 Node.js (v16+)
 MongoDB (Cloud or local)
@@ -39,6 +41,7 @@ React Router DOM
 
 
 📥 Installation Instructions
+
 1. Clone the repository
 git clone https://github.com/Surandinawodya/bookloom
 cd bookloom
